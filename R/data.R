@@ -7,7 +7,7 @@
 #' \describe{
 #'   \item{x}{Lengths of imaginary fish measured in centimeters}
 #' }
-"fish_lengths"
+"clean_data"
 
 # how to save packaged data
 # fish_lengths <- rnorm(100, mean = 100, sd = 20)
