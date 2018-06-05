@@ -13,7 +13,7 @@ A template for how to organize a large project that requires many custom functio
 * __/analysis__
   * __/scripts__ This is where the functions defined in /R get used to clean and analyze the data. Use good naming schemes and or number the scripts to define a specific order they should be run in.
   * __/output__ This is where all cumbersome tables, plots, or simulation output goes
-  * __/reports__ Typically this is where an .Rmd file and the project report word document will be stored.
+  * __/reports__ Typically this is where an .Rmd file and the project report word document will be stored. This is also where reports from previous years can be stored.
  
  * __/data-raw__ This is where the raw data that never gets touched goes. The contents of this folder should be provided by whoever manually entered the data.
  
