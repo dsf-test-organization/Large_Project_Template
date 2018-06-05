@@ -9,3 +9,6 @@
  * /inst/extdata (installation/externaldata) This is where the raw data that never gets touched goes. Everything in the inst folder jumps into the parent directory upond installation.
  
  * /data This is where the data you want users to have immediate access to after installing the package goes. Should be saved as an .rda file. Use devtools::use_data(x) to correctly save data into this folder.
+
+
+Needs one more folder for working documents. Analysis/Vignette/Demo folder.
