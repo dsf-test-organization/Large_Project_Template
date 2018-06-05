@@ -1,12 +1,7 @@
 #' Lengths of 100 imaginary fishes
 #'
-#' A dataset containing the prices and other attributes of almost 54,000
-#'  diamonds. The variables are as follows:
-#'  Who:
-#'  What:
-#'  Where:
-#'  When:
-#'  Description of or link to sampling protocols:
+#' A dataset containing the lengths of a sample of 100 fish. Describe the who, what, where, and when behind the data here.
+#'  provide a link to the a file containing a *complete* description of the sampling protocols.
 #'
 #' @format A data frame with 100 rows and 1 variable:
 #' \describe{
