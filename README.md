@@ -1,9 +1,10 @@
-# File Structure
 
 A template for how to organize a large project that requires many custom functions. Much of the layout was taken from the following:
 
 * Guide to simple layout above: https://nicercode.github.io/blog/2013-04-05-projects/
 * Guide to using R packages for reproducible research: https://peerj.com/preprints/3192/
+
+# Package Structure
 
 * __/R__
   All the definitions of custom functions go here. It's generally best practice to group similar functions in the same script file so the folder isn't overflowing with files. Also important, there should be a data.R file in this folder that __thoroughly documents the data__. Does metadata for the raw data belong somewhere else?
