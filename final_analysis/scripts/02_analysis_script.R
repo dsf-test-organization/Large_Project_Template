@@ -1,6 +1,6 @@
 
 
-# NOTE: since we saved clean_data to /data it is available
+# NOTE: since we saved clean_data to /data, it is available
 # as soon as we load the package
 
 head(clean_data)
@@ -22,5 +22,5 @@ abline(v = mean_length, lwd = 3, col = "red")
 dev.off()
 
 
-
+dir.create(paste0(getwd(), "/op_plan/output"))
 
