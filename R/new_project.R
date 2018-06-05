@@ -38,4 +38,4 @@ new_project <- function(name, github = FALSE, auth_token = NULL){
 
 }
 
-# new_project("test1", github = TRUE, auth_token = "c6d8265208351e4085fe492f2550d0aa0197d6eb")
+
