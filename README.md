@@ -2,7 +2,7 @@
 
 A template for how to organize a large project that requires many custom functions and thorough documentation. Much of the layout was taken from the following:
 
-* Guide to simple layout above: https://nicercode.github.io/blog/2013-04-05-projects/
+* Guide to small project layout: https://nicercode.github.io/blog/2013-04-05-projects/
 * Guide to using R packages for reproducible research: https://peerj.com/preprints/3192/
 
 ## Package Structure
