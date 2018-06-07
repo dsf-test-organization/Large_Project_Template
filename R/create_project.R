@@ -42,8 +42,8 @@ create_project <- function(pkg_name,
 
   if (github){
     devtools::use_github(pkg = pkg_name, auth_token = auth_token, protocol = "https")
-
   }
+
 
 }
 
