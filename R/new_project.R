@@ -39,4 +39,4 @@ new_project <- function(name, github = TRUE, auth_token = "get_from_github"){
 
 }
 
- new_project("AutoProj", github = TRUE, auth_token = "84d95ce5dec060ed067a211e79b3305cc9ef4071")
+
