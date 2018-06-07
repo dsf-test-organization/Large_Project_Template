@@ -50,7 +50,7 @@ In addition to documenting the data, the code itself must be documented. Code sh
 
 ## 4. Organization and Accessibility
 
-Finally, all of the above components need to be organized and accessible. Ideally, any individual wishing to reproduce the results of a particular project should be able to quickly find that project in an archive or repository and be able to identify the purpose and location of all the major project components.
+Finally, all of the above components need to be organized and accessible. Ideally, any individual wishing to reproduce the results of a particular project should be able to quickly find that project in an archive or repository and immediately be able to identify the purpose and location of all the major project components.
 
 When dealing with large projects, file-clutter can quickly become overwhelming and significantly reduce productivity. One way to avoid this is to start projects with consistent, well-organized directory structures. Consistency allows your future self and other researchers to quickly identify where particular files are stored based on subject. Finding the right files is a critical step in reproducing research.
 
