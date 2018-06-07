@@ -12,10 +12,9 @@ A template for how to organize a large project that requires many custom functio
   
 * __/final_analysis__
   * __/scripts__ This is where the functions defined in /R get used to clean and analyze the data. Use good naming schemes and or number the scripts to define a specific order they should be run in.
-  * __/output__ This is where all cumbersome tables, plots, or simulation output goes
-  * __/reports__ Here we would store a technical .rmd that walks the reader through the statistical analysis and choices made. This would also be where the final report is stored.
- 
- * __/data-raw__ This is where the raw data that never gets touched goes. The contents of this folder should be provided by whoever manually entered the data.
+  * __/output__ This is where all cumbersome tables, plots, or simulation output goes. Everything in this folder can be regenerated, but it may be a pain to do so.
+  * __/reports__ Here we would store a technical .rmd that walks the reader through the statistical analysis and choices made. This would also be where the final report and reports from previous years are stored.
+ * __/data-raw__ This is where the raw data that never gets touched goes. The contents of this folder should be provided by whoever manually entered the data. Optionally, it can (should?) contain a plain text metadata file that fully describes the data.
  
  * __/data__ This is where the (clean) data you want users to have immediate access to after loading the package goes. Should be saved as an .rda file. Use devtools::use_data(x) to correctly save data into this folder.
 
@@ -28,8 +27,9 @@ A template for how to organize a large project that requires many custom functio
 
 For the sake of longevity, some important documents should not depend on a particular programming language, program version, or document type. These documents should be:
 
-* A pdf of the op plan, fully describing the data collection process stored in the /op_plan/reports folder.
+* A pdf of the op plan in the /op_plan/reports folder.
+* The final project report saved as a pdf in /final_analysis/reports
 * The raw data saved as a .csv file in /data-raw
 * A readme style metadata .txt document in /data-raw 
-* Technical document(s) guiding the reader through the statistical analysis saved as a .pdf in a reports folder
-* The final project report saved as a pdf in /final_analysis/reports
+* Technical document(s) guiding the reader through the statistical analysis saved as a .pdf in the appropriate reports folder
+
