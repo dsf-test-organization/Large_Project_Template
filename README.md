@@ -26,7 +26,7 @@ A template for how to organize a large project that requires many custom functio
 
 ## Time and Programming Language Independent Components
 
-For longevities sake, some important documents should not depend on a particular programming languages, program version, or document type. These documents should be:
+For the sake of longevity, some important documents should not depend on a particular programming language, program version, or document type. These documents should be:
 
 * A pdf of the op plan, fully describing the data collection process stored in the /op_plan/reports folder.
 * The raw data saved as a .csv file in /data-raw
