@@ -24,7 +24,7 @@ A template for how to organize a large project that requires many custom functio
 * __/op_plan__ Similar structure as the final_analysis folder, except this is for everything that was done pre data collection.
 
 
-## Time and Programming Language Indepedent Components
+## Time and Programming Language Independent Components
 
 For longevities sake, some important documents should not depend on a particular programming languages, program version, or document type. These documents should be:
 
