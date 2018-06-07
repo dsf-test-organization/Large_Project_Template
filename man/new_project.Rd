@@ -4,20 +4,22 @@
 \alias{new_project}
 \title{Create new project scaffolding.}
 \usage{
-new_project(name, github = FALSE, auth_token = NULL)
+new_project(name, github = TRUE, auth_token = "get_from_github")
 }
 \arguments{
-\item{name}{Name of the new project. A new folder will be in the created current working directory with that name.}
+\item{name}{Name of the new project. A new folder will be in the created current working directory with that name}
 
-\item{github}{Logical. Create GitHub repo? Note this requires a \code{GITHUB_PAT}. See \code{\link[devtools]{use_github}}.}
+\item{github}{Logical. Create GitHub repo? Note this requires an auth_token}
 }
 \value{
-A new directory with R package structure, slightly modified.
+A new directory with a modified R package
 }
 \description{
-Create all the scaffolding for a new project in a new directory. To use: 1. Go to https://github.com/settings/tokens to retieve your auth_token that will be used in the function.
-2. Change your working directory to the location where you want the project folder to be stored 3. Run the function.
+Creates all the scaffolding for a new project in a new directory. To use: 1. Go to https://github.com/settings/tokens to retrieve your auth_token.
+2. Change your working directory to the location you want the project folder to be stored 3. Run the function. NOTE: folders cannot be added
+to github until there is a file in them. The github repo will be created under your personal account. You will need to transfer or fork the repo to the
+dsf organization account.
 }
 \examples{
- new_project("pkgName", github = TRUE, auth_token = "a12k3ln0812143cla292f2asd81226eb")
+new_project("pkgName", github = TRUE, auth_token = "a12k3l812143cla292f2asd81226eb")
 }
