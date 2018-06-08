@@ -45,6 +45,7 @@ create_project <- function(pkg_name,
   }
 
 
-}
+  write_meta(location = paste0(pkg_name, '/data-raw/metadata.txt'))
 
+}
 

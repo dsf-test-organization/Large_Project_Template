@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 # Reproducible Research
 
-For conclusions from a scientific study to be trustworthy, they must be verifiable. All too often, however, the conclusions of scientific studies cannot be verified because the data are not available, the methods are not fully described, or the software researchers used is inaccessible. The goal of the reproducible research movement is to conduct and document research in a manner that allows third parties to fully replicate the results of a study. This allows other researchers to fully understand and __verify the correctness__ of any conclusions. Using a reproducible methodology also allows for easier collaboration and smoother project hand-offs between team members. With the advent of technologies such as R and RMarkdown, or Python and Jupyter Notebooks, conducting research in a reproducible manner has become a reasonable objective for every researcher.
+For conclusions from a scientific study to be trustworthy, they must be verifiable. All too often, however, the conclusions of scientific studies cannot be verified because the data are not available, the methods are not fully described, or the software researchers used is inaccessible. The goal of the reproducible research movement is to conduct and document research in a manner that allows third parties to fully replicate the results of a study. This allows other researchers to fully understand the methods used and verify the correctness of any conclusions. Using a reproducible methodology also allows for easier collaboration and smoother project hand-offs between team members. This paper will focus on computational and statistical reproducibility.
 
 
 # Components of Reproducible Research
@@ -31,7 +31,7 @@ Raw data is the starting point of any statistical analysis and is essential to v
 * Each row represents one observational unit
 * Data from different types of observational units are stored in different data tables
 
-When converting the raw data to a tidy dataset, it is important not to overwrite the original 'messy' dataset. Both the raw data and the clean data should be saved as separate files. Sometimes mistakes are made when converting the raw data to a useable format, and without the raw data this cannot be checked for. Other researchers may also choose to process the raw data in a different manner, which requires the original raw data file be kept intact.
+When converting the raw data to a tidy dataset, it is important not to overwrite the original 'messy' dataset. Both the raw data and the clean data should be saved as separate files. Sometimes mistakes are made when converting the raw data to a useable format, and without the raw data, this cannot be checked for. Other researchers may also choose to process the raw data in a different manner, which requires the original raw data be kept intact.
 
 ## 2. The Code
 
@@ -41,30 +41,50 @@ The code used to conduct an analysis represents a complete description of all ca
 
 A dataset without a description of what the variables represent or how the data were collected is useless. Similarly, a script that cannot be human-read or followed is of little help when it comes to understanding or verifying an analysis. Both the data and the code used must be well documented in order for the analysis to be reproducible.
 
-Data should always be accompanied by "metadata." Metadata is a complete description of the data--the who, what, where, when, why, and how behind the data. The metadata file should allow parties not involved in the study or data collection process to fully understand what everything in the raw data file represents and why it is there. The metadata should also explain the sampling or experimental protocols used to collect the data. Creating and saving a metadata file with your dataset also makes it possible for the data to be reused for other purposes beyond the original intentions.
+Data should always be accompanied by "metadata." Metadata is a complete description of the data--the who, what, where, when, why, and how behind the data. The metadata file should allow parties not involved in the study or data collection process to fully understand what everything in the raw data file represents and why it is there. The metadata should also explain the sampling or experimental protocols used to collect the data. Creating and saving a metadata file with your dataset also makes it possible for the data to be reused for other purposes beyond the original intentions, even after long periods of time.
 
-In addition to documenting the data, the code itself must be documented. Code should be well commented and written in a manner that is conducive to human reading. Writing readable code makes the code easier to understand, easier to debug and improve, and makes collaboration a smoother process. A reader should be able to open a script without any prior knowledge of it and in a reasonably short amount of time have a general understanding of what the code does and how it does it. See http://adv-r.had.co.nz/Style.html for a simple guide to writing readable R code.
+In addition to documenting the data, the code itself must be documented. Code should be well commented and written in a manner that is conducive to human reading. Custom functions should also be accompanied by appropriate descriptions and instructions. Writing readable code makes the code less prone to error, easier to understand, easier to debug and improve, and makes collaboration a smoother process. A reader should be able to open a script without any prior knowledge of it and in a reasonably short amount of time have a general understanding of what the code does and how it does it. See http://adv-r.had.co.nz/Style.html for a simple guide to writing readable R code.
 
 
 
 
 ## 4. Organization and Accessibility
 
-Finally, all of the above components need to be organized and accessible. Ideally, any individual wishing to reproduce the results of a particular project should be able to quickly find that project in an archive or repository and immediately be able to identify the purpose and location of all the major project components.
+Finally, all of the above components need to be organized and accessible. Ideally, any individual wishing to reproduce the results of a particular study should be able to quickly find the data and code used for that study in an archive or repository and immediately be able to identify the purpose and location of all the major files and documents.
 
-When dealing with large projects, file clutter can quickly become overwhelming and significantly reduce productivity. One way to avoid this is to start projects with a consistent, well-organized directory structure. Consistency allows your future self and other researchers to quickly identify where particular files are stored based on subject. Finding the right files is a critical step in reproducing research.
+When dealing with large projects, file clutter can quickly become overwhelming. In addition to slowing your own workflow, clutter can prevent others from understanding and reviewing code in a time efficient manner.  One way to avoid this is to start projects with a consistent, well-organized directory structure. Consistency allows your future self and other researchers to quickly identify where particular files are stored based on subject. Finding the files in the first place is a critical step in reproducing research.
 
-To make the well-organized project accessible to everyone, it needs to be hosted online. Options range from a formal dedicated archives to simple GitHub repositories. Regardless of where the project is stored, it needs to have an informative name, be tagged with appropriate keywords, and be searchable so that others can find it.
+To make a project accessible to everyone, it needs to be hosted online. Options range from a formal dedicated archive to simple GitHub repositories. Regardless of where the project is stored, it needs to have an informative name, be tagged with appropriate keywords, and be searchable so that others can find it.
 
 
 
 
 # Implementation: GitHub and R Packages
 
-* R packages as a reproducible project bundle
-* GitHub and Github Organizations
+## R Projects and Packages
 
+One way to conveniently bundle components 1 through 3 above is through the use of R Projects and R Packages.
 
+An R Project is a convenient way to pair projects up with their own working directory. A working directory is the default folder R will look to when reading in or writing out files. For example, the command write.csv(x, "clean_data.csv") will a .csv file called "clean_data" straight to the working directory. By using an R project, all files can be easily managed through the same working directory. R projects are particularly helpful when sharing code. If all file paths are defined relative to the working directory, it is easy for anyone to download the R project folder and immediately run the code without any file path related errors.
+
+After an R project has been created to aid in organization and shareability, an R package can be created within the project. An R package is a bundle of code, data, and documenation that allows an entire analysis to be completely portable. A simple R-package contains an /R folder which contains custom function definitions, a /data folder for data, a /man (standing for manual) folder which contains documentation for all the functions defined in /R, and one or more folders for analysis using the aforementioned functions and data. After a package has been installed and loaded into the environment, the user can immediately use all functions and data defined in the /R and /data folders. Additionally, a user can type ?function_name or ?data_name to see documentation that fully describes the object and how to use it with instructions and examples.
+
+Here is an example of what a typical project directory may look like, where / denotes a folder: 
+
+* /Project
+    * /R
+    * /data-raw
+    * /data
+    * /final_analysis
+    * /man
+    * /op_plan
+    * project.Rproj
+    * readme.md
+ 
+
+## GitHub and Github Organizations
+
+Finally, the R Project and Package needs to be put somewhere so that others can access it. GitHub is a free and excellent resource that allows users to create "repositories" which are collections of code, perfect for an R Project. Further, individual users can collaborate through GitHub organizations and have a collection of repos that are searchable and can be tagged with keywords.
 
 
 
