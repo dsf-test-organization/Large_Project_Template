@@ -7,7 +7,7 @@
 write_meta(location = "data")
 }
 \arguments{
-\item{txt}{The text to be written}
+\item{location}{The exact location (including file name) of where the file will be saved to.}
 }
 \value{
 readme_metadata.txt in /data-raw

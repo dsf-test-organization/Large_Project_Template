@@ -38,7 +38,7 @@ create_project <- function(pkg_name,
   dir.create(file.path(pkg_name, "final_analysis"))
   dir.create(file.path(pkg_name, "op_plan"))
 
-  write_meta(location = paste0(pkg_name, '/data-raw/metadata.txt'))
+  write_meta(pkg_name)
 
   if (github){
     devtools::use_github(pkg = pkg_name, auth_token = auth_token, protocol = "https")
@@ -46,3 +46,4 @@ create_project <- function(pkg_name,
 
 }
 
+create_project(pkg_name = "autoproj", github = FALSE)

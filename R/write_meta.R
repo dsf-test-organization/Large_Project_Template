@@ -1,17 +1,17 @@
 #' write_meta
 #'
-#' Writes a metadata template to data-raw
+#' Writes a metadata template to the data-raw folder
 #'
-#' @param txt The text to be written
+#' @param pkg_name The name of the package
 #'
-#' @return readme_metadata.txt in /data-raw
+#' @return metadata.txt in /data-raw
 #' @export
 #'
 #' @examples write_meta("the string of text to be written")
-write_meta <- function(location="data"){
+write_meta <- function(pkg_name){
 
 
-  x <-  "Introductory Information
+x <-   "Introductory Information
 
   Filename: name and short description of the raw data file
   Name/Instituiton/Address/Principal Investigators: who funded the data collection and who used it?
@@ -44,7 +44,6 @@ write_meta <- function(location="data"){
   Links to publications that cite or use the data
 
   "
-
-  write(x, file = location)
+  write(x, file = paste0(pkg_name, '/data-raw/metadata.txt'))
 
 }
