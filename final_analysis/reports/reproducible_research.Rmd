@@ -29,21 +29,21 @@ Raw data is the starting point of any statistical analysis and is essential to v
 
 * Each column corresponds to one variable
 * Each row represents one observational unit
-* Different types of observational units get different data tables
+* Data from different types of observational units are stored in different data tables
 
-When converting the raw data to a tidy dataset, it is important not to overwrite the original 'messy' dataset. Both the raw data and the clean data should be saved as separate files. Sometimes mistakes are made when converting the raw data to a useable format, and without the raw data this cannot be checked for. Other researchers may also choose to process the raw data in a different manner which requires the original raw data file be kept intact.
+When converting the raw data to a tidy dataset, it is important not to overwrite the original 'messy' dataset. Both the raw data and the clean data should be saved as separate files. Sometimes mistakes are made when converting the raw data to a useable format, and without the raw data this cannot be checked for. Other researchers may also choose to process the raw data in a different manner, which requires the original raw data file be kept intact.
 
 ## 2. The Code
 
-The code used to conduct an analysis represents a complete description of all calculations and data manipulations. Without the code, a researcher would have to rely on general descriptions of calculations and will rarely know exactly how the analysis was performed. Saving the code and using relative file paths allows a third party to simply download the data and the code and run the script to produce the same output that was arrived at in the original analysis.
+The code used to conduct an analysis represents a complete description of all calculations and data manipulations. Without the code, a researcher would have to rely on general descriptions of calculations and will rarely know exactly how the analysis was performed. Saving the code and using relative file paths allows a third party to simply download the data and code and immediately run scripts to produce output.
 
 ## 3. Documentation
 
-A dataset without a description of what the variables represent or how the data were collected is useless. Similarly, a script that cannot be human-read or followed is of little help when it comes to understanding the underlying analysis. Both the data and the code used must be well documented in order for the analysis to be reproducible.
+A dataset without a description of what the variables represent or how the data were collected is useless. Similarly, a script that cannot be human-read or followed is of little help when it comes to understanding or verifying an analysis. Both the data and the code used must be well documented in order for the analysis to be reproducible.
 
 Data should always be accompanied by "metadata." Metadata is a complete description of the data--the who, what, where, when, why, and how behind the data. The metadata file should allow parties not involved in the study or data collection process to fully understand what everything in the raw data file represents and why it is there. The metadata should also explain the sampling or experimental protocols used to collect the data. Creating and saving a metadata file with your dataset also makes it possible for the data to be reused for other purposes beyond the original intentions.
 
-In addition to documenting the data, the code itself must be documented. Code should be well commented and written in a manner that is conducive to human reading. Writing readable code makes code easier to understand, easier to debug and improve, and makes collaboration a smoother process. A reader should be able to open a script without any prior knowledge of it and in a reasonably short amount of time have a general understanding of what the code does and how it does it.
+In addition to documenting the data, the code itself must be documented. Code should be well commented and written in a manner that is conducive to human reading. Writing readable code makes the code easier to understand, easier to debug and improve, and makes collaboration a smoother process. A reader should be able to open a script without any prior knowledge of it and in a reasonably short amount of time have a general understanding of what the code does and how it does it. See http://adv-r.had.co.nz/Style.html for a simple guide to writing readable R code.
 
 
 
@@ -52,17 +52,16 @@ In addition to documenting the data, the code itself must be documented. Code sh
 
 Finally, all of the above components need to be organized and accessible. Ideally, any individual wishing to reproduce the results of a particular project should be able to quickly find that project in an archive or repository and immediately be able to identify the purpose and location of all the major project components.
 
-When dealing with large projects, file-clutter can quickly become overwhelming and significantly reduce productivity. One way to avoid this is to start projects with consistent, well-organized directory structures. Consistency allows your future self and other researchers to quickly identify where particular files are stored based on subject. Finding the right files is a critical step in reproducing research.
+When dealing with large projects, file clutter can quickly become overwhelming and significantly reduce productivity. One way to avoid this is to start projects with a consistent, well-organized directory structure. Consistency allows your future self and other researchers to quickly identify where particular files are stored based on subject. Finding the right files is a critical step in reproducing research.
+
+To make the well-organized project accessible to everyone, it needs to be hosted online. Options range from a formal dedicated archives to simple GitHub repositories. Regardless of where the project is stored, it needs to have an informative name, be tagged with appropriate keywords, and be searchable so that others can find it.
 
 
 
 
+# Implementation: GitHub and R Packages
 
-
-# Implementation in R
-
-* Consistent programming Style
-* Consistent file organization: Directory and R Package structure
+* R packages as a reproducible project bundle
 * GitHub and Github Organizations
 
 
