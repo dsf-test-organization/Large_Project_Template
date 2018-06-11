@@ -26,11 +26,9 @@ create_project <- function(pkg_name,
   try(devtools::use_readme_rmd(pkg_name), silent = TRUE)
 
 
-
   # run the use_package function over all the package names
   # pkg is passed as a parameter to use_package
   sapply(X = pkg_depends, FUN = devtools::use_package, pkg = pkg_name)
-
 
 
   dir.create(file.path(pkg_name, "data"))
@@ -38,7 +36,10 @@ create_project <- function(pkg_name,
   dir.create(file.path(pkg_name, "final_analysis"))
   dir.create(file.path(pkg_name, "op_plan"))
 
+
+  # write the metadata template to /data-raw
   write_meta(pkg_name)
+
 
   if (github){
     devtools::use_github(pkg = pkg_name, auth_token = auth_token, protocol = "https")

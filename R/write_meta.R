@@ -1,14 +1,14 @@
-#' write_meta
+#' create_meta
 #'
-#' Writes a metadata template to the data-raw folder
+#' creates a metadata template in the data-raw folder
 #'
 #' @param pkg_name The name of the package
 #'
 #' @return metadata.txt in /data-raw
 #' @export
 #'
-#' @examples write_meta("the string of text to be written")
-write_meta <- function(pkg_name){
+#' @examples create_meta("the string of text to be written")
+create_meta <- function(pkg_name){
 
 
 x <-   "Introductory Information
