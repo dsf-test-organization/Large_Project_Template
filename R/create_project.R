@@ -47,4 +47,5 @@ create_project <- function(pkg_name,
 
 }
 
-create_project(pkg_name = "autoproj", github = FALSE)
+# test
+# create_project(pkg_name = "autoproj", github = FALSE)

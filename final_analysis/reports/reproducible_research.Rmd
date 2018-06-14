@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 # Reproducible Research
 
-For conclusions from a scientific study to be trustworthy, they must be verifiable. All too often, however, the conclusions of scientific studies cannot be verified because the data are not available, the methods are not fully described, or the software researchers used is inaccessible. The goal of the reproducible research movement is to conduct and document research in a manner that allows third parties to fully replicate the results of a study. This allows other researchers to fully understand the methods used and verify the correctness of any conclusions. Using a reproducible methodology also allows for easier collaboration and smoother project hand-offs between team members. This paper will focus on computational and statistical reproducibility.
+For conclusions from a scientific study to be trustworthy, they must be verifiable. All too often, however, the conclusions of scientific studies cannot be verified because the data are not available, the methods are not fully described, or the software researchers used is inaccessible. The goal of the reproducible research movement is to conduct and document research in a manner that allows third parties to fully replicate the results of a study. This allows other researchers to fully understand the methods used and verify the correctness of any conclusions. Using a reproducible methodology also allows for easier collaboration and smoother project hand-offs between team members. This paper will focus on computational and statistical reproducibility, with the first "Components" section being a general guide applicable across all types of software, and the "Implementation" section focusing on reproducible research using GitHub and R specifically.
 
 
 # Components of Reproducible Research
@@ -35,41 +35,47 @@ When converting the raw data to a tidy dataset, it is important not to overwrite
 
 ## 2. The Code
 
-The code used to conduct an analysis represents a complete description of all calculations and data manipulations. Without the code, a researcher would have to rely on general descriptions of calculations and will rarely know exactly how the analysis was performed. Saving the code and using relative file paths allows a third party to simply download the data and code and immediately run scripts to produce output.
+The code used to conduct an analysis represents a complete description of all calculations and data manipulations. Without the code, a researcher would have to rely on general descriptions of calculations and will rarely know exactly how the analysis was performed. Saving the code and using relative file paths allows a third party to simply download the data and code and immediately run the analysis for themselves. For example, the script used to convert the raw data to a tidy dataset should be saved so that anyone can download the raw data and cleaning script and then be able to recreate the tidy dataset on their own computer.
 
 ## 3. Documentation
 
-A dataset without a description of what the variables represent or how the data were collected is useless. Similarly, a script that cannot be human-read or followed is of little help when it comes to understanding or verifying an analysis. Both the data and the code used must be well documented in order for the analysis to be reproducible.
+A dataset without a description of what the variables represent or how the data were collected is useless to those not involved in its creation. Similarly, code that cannot be human-read or followed is of little help when it comes to understanding or verifying an analysis. Both the data and the code used must be well documented in order for the analysis to be reproducible.
 
-Data should always be accompanied by "metadata." Metadata is a complete description of the data--the who, what, where, when, why, and how behind the data. The metadata file should allow parties not involved in the study or data collection process to fully understand what everything in the raw data file represents and why it is there. The metadata should also explain the sampling or experimental protocols used to collect the data. Creating and saving a metadata file with your dataset also makes it possible for the data to be reused for other purposes beyond the original intentions, even after long periods of time.
+Data should always be accompanied by "metadata." Metadata is a complete description of the data--the who, what, where, when, why, and how behind the data. The metadata file should allow parties not involved in the study or data collection process to fully understand what everything in the raw data file represents and how it got there. The metadata should fully explain or link to a full explanation of the sampling or experimental protocols used to collect the data. Creating and saving a metadata file with your dataset also makes it possible for the data to be reused for other purposes beyond the original intentions, even after long periods of time have passed.
 
-In addition to documenting the data, the code itself must be documented. Code should be well commented and written in a manner that is conducive to human reading. Custom functions should also be accompanied by appropriate descriptions and instructions. Writing readable code makes the code less prone to error, easier to understand, easier to debug and improve, and makes collaboration a smoother process. A reader should be able to open a script without any prior knowledge of it and in a reasonably short amount of time have a general understanding of what the code does and how it does it. See http://adv-r.had.co.nz/Style.html for a simple guide to writing readable R code.
+In addition to documenting the data, the code itself must be documented. Code should be well commented and written in a manner that is conducive to human reading. Custom functions should be accompanied by appropriate descriptions and instructions. Writing readable code makes the code less prone to error, easier to understand, easier to debug and improve, and makes collaboration a smoother process. A reader should be able to open a script without any prior knowledge of it and obtain a general understanding of what the code does and how it does it in a reasonably short amount of time. See http://adv-r.had.co.nz/Style.html for a simple guide to writing readable R code.
 
 
-
+For highly technical code, it may be better to document the code with an Rmarkdown or Notebook type document. Rmarkdown and Notebook documents allow code and output to be interwoven with well-formatted sections of text. This can significantly improve the readability of technical documents and allows for (and even encourages) explanations to be more thorough.
 
 ## 4. Organization and Accessibility
 
-Finally, all of the above components need to be organized and accessible. Ideally, any individual wishing to reproduce the results of a particular study should be able to quickly find the data and code used for that study in an archive or repository and immediately be able to identify the purpose and location of all the major files and documents.
+Finally, all of the above components need to be organized and accessible. Ideally, any individual wishing to reproduce the results of a particular study should be able to quickly find the data and code used for that study in an archive or repository, and then immediately be able to identify the purpose and location of all the major project components.
 
-When dealing with large projects, file clutter can quickly become overwhelming. In addition to slowing your own workflow, clutter can prevent others from understanding and reviewing code in a time efficient manner.  One way to avoid this is to start projects with a consistent, well-organized directory structure. Consistency allows your future self and other researchers to quickly identify where particular files are stored based on subject. Finding the files in the first place is a critical step in reproducing research.
+When dealing with computational projects, file clutter can slow down workflows and even render an entire project inaccessible to others. One way to avoid clutter is to start projects with a consistent, well-organized directory structure. Going into a project knowing where files will be saved to prevents them from accumulating in the wrong places. Structuring directories in a consistent manner also aids in collaboration-- as everyone can be on the same page and know where to find each type of document. For small projects, a simple directory structure like the following may suffice, where / represents a folder:
 
-To make a project accessible to everyone, it needs to be hosted online. Options range from a formal dedicated archive to simple GitHub repositories. Regardless of where the project is stored, it needs to have an informative name, be tagged with appropriate keywords, and be searchable so that others can find it.
+ * /Project
+    * /scripts
+    * /data
+    * /reports
+    * /output
+
+For large projects, a more complicated directory structure incorporating a library or package may be appropriate.
+
+To make a project accessible to everyone, it needs to be hosted online. Options range from formal dedicated archives to simple GitHub repositories. Regardless of where the project is stored, it needs to have an informative name, be tagged with appropriate keywords, and be searchable so that others can find it.
 
 
 
 
 # Implementation: GitHub and R Packages
 
-## R Projects and Packages
+## R: Projects and Packages
 
-One way to conveniently bundle components 1 through 3 above is through the use of R Projects and R Packages.
+One way to conveniently bundle components 1 through 3 above is to use R Projects and R Packages. Creating an R Project is a way to pair projects up with their own working directory. A working directory is the default folder R will look to when reading in or writing out files. For example, the command read.csv("clean_data.csv") will look in the working directory for "clean_data.csv" and return an error if it is not there. By using an R project, all files can be easily managed relative to one central folder. This is particularly helpful when sharing code. If all files are kept within the project folder and paths are defined relative to that folder (the working directory), it becomes easy for anyone to download the R project and immediately run the code without any file path related errors.
 
-An R Project is a convenient way to pair projects up with their own working directory. A working directory is the default folder R will look to when reading in or writing out files. For example, the command write.csv(x, "clean_data.csv") will a .csv file called "clean_data" straight to the working directory. By using an R project, all files can be easily managed through the same working directory. R projects are particularly helpful when sharing code. If all file paths are defined relative to the working directory, it is easy for anyone to download the R project folder and immediately run the code without any file path related errors.
+After an R project has been created to aid in organization and shareability, an R package can be created within the project. An R package is a bundle of code, data, and documenation that allows an analysis to be entirely portable. A simple R-package contains an /R folder which contains custom function definitions, a /data folder for data, a /man (short for manual) folder containing documentation for all the functions defined in /R, and one or more folders for analysis using the aforementioned functions and data. After a package has been installed and loaded into the environment, the user can immediately use all functions and data defined in the /R and /data folders. Additionally, a user can type ?name_of_function or ?name_of_data to see documentation that fully describes the object and how to use it with instructions and examples.
 
-After an R project has been created to aid in organization and shareability, an R package can be created within the project. An R package is a bundle of code, data, and documenation that allows an entire analysis to be completely portable. A simple R-package contains an /R folder which contains custom function definitions, a /data folder for data, a /man (standing for manual) folder which contains documentation for all the functions defined in /R, and one or more folders for analysis using the aforementioned functions and data. After a package has been installed and loaded into the environment, the user can immediately use all functions and data defined in the /R and /data folders. Additionally, a user can type ?function_name or ?data_name to see documentation that fully describes the object and how to use it with instructions and examples.
-
-Here is an example of what a typical project directory may look like, where / denotes a folder: 
+Here is an example of what a typical directory for a project organized by using an R package may look like, where / denotes a folder: 
 
 * /Project
     * /R
@@ -82,9 +88,27 @@ Here is an example of what a typical project directory may look like, where / de
     * readme.md
  
 
-## GitHub and Github Organizations
+## GitHub and GitHub Organizations
 
-Finally, the R Project and Package needs to be put somewhere so that others can access it. GitHub is a free and excellent resource that allows users to create "repositories" which are collections of code, perfect for an R Project. Further, individual users can collaborate through GitHub organizations and have a collection of repos that are searchable and can be tagged with keywords.
+Finally, the R Project (containing a package) needs to be put somewhere so that others can access it. Github is a free resource that allows users to create project-specific repositories to store code and other files in. An entire R Project can be uploaded as it's own repository and be made immediately available to anyone with internet acess.
+
+'GitHub Organizations' is a feature that allows multiple users to share the same organizational structure associated with an individual account. Each member of a github organization can create, delete, or modify any of the repositories in the organization. This allows members of the organizations to work together or separately, and contribute their work to a single location that all members have access to. The github organization account also allows repositories to be tagged with keywords and searched for, so as long as appropriate naming schemes and tagging protocols are used, any project can be quickly found by anyone.
 
 
+# Topics worth reading into:
 
+Makefiles precisely describe the relationship between inputs, outputs, and scripts, and allows for easy re-building of the final results.
+
+Docker allows for the isolation of the computational environment. Software will inevitably change over time--sometimes breaking old code. Docker prevents that by also saving the version of software that was used.
+
+Archiving: Github may not be around forever, and outside researchers probably won't search for data they could use there. A formal archive would probably ensure the data stays openly available long-term and make it easier for outside researchers to find and reuse the data for other purposes. We could just supplement our use of github by occasionally submitting projects we think are important or could be used by others to an archive.
+
+# Sources
+
+Wickham 2014. https://www.jstatsoft.org/article/view/v059i10/
+
+Similar outline of R packages for reproducible research: https://peerj.com/preprints/3192/
+
+Guide to organizing projects that don't quite need an R package: https://nicercode.github.io/blog/2013-04-05-projects/
+
+GitHub Organizations Intro: https://blog.github.com/2010-06-29-introducing-organizations/
