@@ -8,7 +8,7 @@ A template for how to organize a large project that requires many custom functio
 ## Package Structure
 
 * __/R__
-  All the definitions of custom functions go here. It's generally best practice to group similar functions in the same script file so the folder isn't overflowing with files, while at the same time separating definitions into enough files so that function definitions can be easily found based on what they do. Also important, there should be a data.R file containing roxygen documentation that thoroughly documents the clean data.
+  All the definitions of custom functions go here. It's generally best practice to group similar functions in the same script file so the folder isn't overflowing with files, while at the same time separating function definitions into enough files so that they can be easily found based on what they do. Also important, there should be a data.R file containing roxygen documentation that thoroughly documents the clean data.
   
 * __/final_analysis__
   * __/scripts__ This is where the functions defined in /R get used to clean and analyze the data. Use good naming schemes and or number the scripts to define a specific order they should be run in.
